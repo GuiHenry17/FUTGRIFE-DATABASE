@@ -30,8 +30,8 @@ app.use(express.json());
 app.post('/matriculas', async (req, res) => {
   try {
     const novaMatricula = req.body;
+    result = await collection.insertOne(novaMatricula)
 
-    //complete o código
     
     res.status(201).json({ message: 'Matrícula criada com sucesso', matriculaId: result.insertedId });
   } catch (err) {
@@ -40,8 +40,10 @@ app.post('/matriculas', async (req, res) => {
 });
 
 app.get('/matriculas', async (req, res) => {
-  try {
-    //complete o código
+  try {  
+    const matriculas = await collection.find().toArray();
+    
+
     res.status(200).json(matriculas);
   } catch (err) {
     res.status(500).json({ message: 'Erro ao buscar matrículas', error: err });
@@ -55,7 +57,7 @@ app.get('/matriculas/:id', async (req, res) => {
     const id = req.params.id;
     const newId =  new ObjectId(id);
 
-    //complete o código
+    const matricula = await collection.findOne({ _id: newId });
 
     if (!matricula) {
       res.status(404).json({ message: 'Matrícula não encontrada' });
@@ -73,7 +75,7 @@ app.put('/matriculas/:id', async (req, res) => {
     const newId =  new ObjectId(id);
     const atualizacao = req.body;
 
-    //complete o código
+    const result = await collection.updateOne( { _id: newId }, { $set: atualizacao });
 
     if (result.matchedCount === 0) {
       res.status(404).json({ message: 'Matrícula não encontrada' });
@@ -90,8 +92,8 @@ app.delete('/matriculas/:id', async (req, res) => {
     const id = req.params.id;
     const newId =  new ObjectId(id);
 
-    //complete o código
-
+    const result = await collection.deleteOne({ _id: newId });
+    
     if (result.deletedCount === 0) {
       res.status(404).json({ message: 'Matrícula não encontrada' });
     } else {
