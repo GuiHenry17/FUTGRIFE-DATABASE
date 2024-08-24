@@ -14,8 +14,8 @@ async function connectDB() {
     await client.connect();
     console.log('Connected to MongoDB');
 
-    const db = client.db('matriculas');
-    collection = db.collection('matricula');
+    const db = client.db('camisetas');
+    collection = db.collection('camiseta');
 
   } catch (err) {
     console.error('Failed to connect to MongoDB', err);
@@ -27,49 +27,51 @@ connectDB();
 app.use(express.json()); 
 
 
-app.post('/matriculas', async (req, res) => {
+app.post('/camisetas', async (req, res) => {
   try {
-    const novaMatricula = req.body;
-    result = await collection.insertOne(novaMatricula)
+    const novaCamiseta = req.body;
+    novaCamiseta.preco = parseFloat(novaCamiseta.preco)
+    novaCamiseta.quantidade = parseFloat(novaCamiseta.quantidade)
+    result = await collection.insertOne(novaCamiseta)
 
     
-    res.status(201).json({ message: 'Matrícula criada com sucesso', matriculaId: result.insertedId });
+    res.status(201).json({ message: 'Camiseta criada com sucesso', camisetaId: result.insertedId });
   } catch (err) {
-    res.status(500).json({ message: 'Erro ao criar matrícula', error: err });
+    res.status(500).json({ message: 'Erro ao criar camiseta', error: err });
   }
 });
 
-app.get('/matriculas', async (req, res) => {
+app.get('/camisetas', async (req, res) => {
   try {  
-    const matriculas = await collection.find().toArray();
+    const camisetas = await collection.find().toArray();
     
 
-    res.status(200).json(matriculas);
+    res.status(200).json(camisetas);
   } catch (err) {
-    res.status(500).json({ message: 'Erro ao buscar matrículas', error: err });
+    res.status(500).json({ message: 'Erro ao buscar camisetas', error: err });
   }
 });
 
 const { ObjectId } = require('mongodb');
 
-app.get('/matriculas/:id', async (req, res) => {
+app.get('/camisetas/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const newId =  new ObjectId(id);
 
-    const matricula = await collection.findOne({ _id: newId });
+    const camiseta = await collection.findOne({ _id: newId });
 
-    if (!matricula) {
-      res.status(404).json({ message: 'Matrícula não encontrada' });
+    if (!camiseta) {
+      res.status(404).json({ message: 'Camiseta não encontrada' });
     } else {
-      res.status(200).json(matricula);
+      res.status(200).json(camiseta);
     }
   } catch (err) {
-    res.status(500).json({ message: 'Erro ao buscar matrícula', error: err });
+    res.status(500).json({ message: 'Erro ao buscar camiseta', error: err });
   }
 });
 
-app.put('/matriculas/:id', async (req, res) => {
+app.put('/camisetas/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const newId =  new ObjectId(id);
@@ -78,16 +80,16 @@ app.put('/matriculas/:id', async (req, res) => {
     const result = await collection.updateOne( { _id: newId }, { $set: atualizacao });
 
     if (result.matchedCount === 0) {
-      res.status(404).json({ message: 'Matrícula não encontrada' });
+      res.status(404).json({ message: 'Camiseta não encontrada' });
     } else {
-      res.status(200).json({ message: 'Matrícula atualizada com sucesso' });
+      res.status(200).json({ message: 'Camiseta atualizada com sucesso' });
     }
   } catch (err) {
-    res.status(500).json({ message: 'Erro ao atualizar matrícula', error: err });
+    res.status(500).json({ message: 'Erro ao atualizar camiseta', error: err });
   }
 });
 
-app.delete('/matriculas/:id', async (req, res) => {
+app.delete('/camisetas/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const newId =  new ObjectId(id);
@@ -95,12 +97,12 @@ app.delete('/matriculas/:id', async (req, res) => {
     const result = await collection.deleteOne({ _id: newId });
     
     if (result.deletedCount === 0) {
-      res.status(404).json({ message: 'Matrícula não encontrada' });
+      res.status(404).json({ message: 'Camiseta não encontrada' });
     } else {
-      res.status(200).json({ message: 'Matrícula excluída com sucesso' });
+      res.status(200).json({ message: 'Camiseta excluída com sucesso' });
     }
   } catch (err) {
-    res.status(500).json({ message: 'Erro ao excluir matrícula', error: err });
+    res.status(500).json({ message: 'Erro ao excluir camiseta', error: err });
   }
 });
 
