@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../globals.css';
 import { useNavigate } from 'react-router-dom';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 
 export default function CreateCamiseta() {
@@ -36,6 +38,8 @@ export default function CreateCamiseta() {
   };
 
   return (
+    <div>
+    <Header/>
     <div className='container'>
     <form  className="form-container" onSubmit={handleSubmit}>
       <h2>Criar Camiseta</h2>
@@ -50,6 +54,7 @@ export default function CreateCamiseta() {
         type="number"
         placeholder="Preço"
         min={0}
+        step={0.010}
         value={preco}
         onChange={(e) => setPreco(e.target.value)}
         required
@@ -64,6 +69,8 @@ export default function CreateCamiseta() {
       />
       <button type="submit">Criar Camiseta</button>
     </form>
+    </div>
+    <Footer/>
     </div>
   );
 }

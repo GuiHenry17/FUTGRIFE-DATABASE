@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 export default function UpdateCamiseta() {
   const [id, setId] = useState('');
@@ -33,6 +35,8 @@ export default function UpdateCamiseta() {
   };
 
   return (
+    <div>
+      <Header/>
     <div className='container'>
     <form  className="form-container" onSubmit={handleSubmit}>
       <h2>Atualizar Camiseta</h2>
@@ -53,6 +57,7 @@ export default function UpdateCamiseta() {
       <input
         type="number"
         min={0}
+        step={0.010}
         placeholder="Preço"
         value={preco}
         onChange={(e) => setPreco(e.target.value)}
@@ -68,6 +73,8 @@ export default function UpdateCamiseta() {
       />
       <button type="submit">Atualizar Camiseta</button>
     </form>
+    </div>
+    <Footer/>
     </div>
   );
 }

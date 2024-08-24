@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../globals.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 export default function ReadCamisetas() {
   const [camisetas, setCamisetas] = useState([]);
@@ -37,14 +39,16 @@ export default function ReadCamisetas() {
   };
 
   return (
+    <div>
+    <Header/>
     <div className='container'>
       <h2>Lista de Camisetas</h2>
       <table  className="table-container" border="1">
         <thead>
           <tr>
             <th>Código Camiseta</th>
-            <th>Nome do Nome</th>
-            <th>Preco</th>
+            <th>Nome da Camiseta</th>
+            <th>Preço</th>
             <th>Quantidade</th>
             <th>Ações</th>
           </tr>
@@ -63,6 +67,8 @@ export default function ReadCamisetas() {
           ))}
         </tbody>
       </table>
+    </div>
+    <Footer/>
     </div>
   );
 }
