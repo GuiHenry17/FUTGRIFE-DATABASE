@@ -74,7 +74,7 @@ export default function UpdateCamiseta() {
       <button type="submit">Atualizar Camiseta</button>
     </form>
     </div>
-    <Footer/>
+    <Footer/> 
     </div>
   );
 }
