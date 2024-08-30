@@ -8,12 +8,13 @@ import Footer from '../Footer/Footer';
 export default function CreateCamiseta() {
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
+  const [imagem, setImagem] = useState('');
   const [quantidade, setQuantidade] = useState('');
 
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const novaCamiseta = { nome, preco, quantidade };
+    const novaCamiseta = { nome, preco, imagem, quantidade };
 
     try {
       const response = await fetch('http://localhost:5000/camisetas', {
@@ -27,6 +28,7 @@ export default function CreateCamiseta() {
         alert('Camiseta criada com sucesso!');
         setNome('');
         setPreco('');
+        setImagem('');
         setQuantidade('');
         navigate("/camisetas");
       } else {
@@ -57,6 +59,13 @@ export default function CreateCamiseta() {
         step={0.010}
         value={preco}
         onChange={(e) => setPreco(e.target.value)}
+        required
+      />
+      <input
+        type='url'
+        placeholder="Link da Imagem"
+        value={imagem}
+        onChange={(e) => setImagem(e.target.value)}
         required
       />
       <input
