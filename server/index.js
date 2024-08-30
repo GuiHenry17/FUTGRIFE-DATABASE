@@ -17,7 +17,7 @@ async function connectDB() {
     const db = client.db('camisetas');
     collection = db.collection('camiseta');
 
-  } catch (err) {
+  } catch (err) { 
     console.error('Failed to connect to MongoDB', err);
   }
 }

@@ -39,25 +39,26 @@ export default function ReadCamisetas() {
   };
 
   return (
-    <div>
-      <Header />
-      <div className='bloco-principal'>
+    <>
+      <Header id='headerprod' />
+      <div className="bloco-principal">
         <div className="pagename">
-          <h1>Camisetas</h1>
+          <h1>Produtos</h1>
         </div>
-        <div className="bloco-produtos">
-          {camisetas.map((camiseta) => (
-            <div key={camiseta.id} id='produtoos'>
-              <img className='fotoprodutos' src={camiseta.imagem} alt={camiseta.nome} />
-              <p>{camiseta.nome}</p>
-              <p className='precos'>{camiseta.preco}</p>
-              <p>{camiseta.quantidade}</p>
-              <button className="delete-container" onClick={() => handleDelete(camiseta._id)}>REMOVER</button>
-            </div>
-          ))}
-        </div>
+        <>
+          <div className="bloco-produtos">
+            {camisetas.map((camiseta) => (
+              <div key={camiseta.id} id='produtoos'>
+                <img className='fotoprodutos' src={camiseta.imagem} alt={camiseta.item} />
+                <p>{camiseta.nome + ` (${camiseta.quantidade})`}</p>
+                  <p>{'R$ ' + camiseta.preco.toFixed(2)}</p>
+                <button className="botaoadd" onClick={() => handleDelete(camiseta._id)}>REMOVER</button>
+              </div>
+            ))}
+          </div>
+        </>
       </div>
       <Footer />
-    </div>
+   </>
   );
 }

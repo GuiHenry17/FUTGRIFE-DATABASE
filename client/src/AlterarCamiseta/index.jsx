@@ -7,6 +7,7 @@ export default function UpdateCamiseta() {
   const [id, setId] = useState('');
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
+  const [imagem, setImagem] = useState('');
   const [quantidade, setQuantidade] = useState('');
 
   const navigate = useNavigate();
@@ -62,6 +63,12 @@ export default function UpdateCamiseta() {
         value={preco}
         onChange={(e) => setPreco(e.target.value)}
         required
+      />
+      <input 
+        type='url'
+        placeholder='Link da Imagem'
+        value={imagem}
+        onChange={(e) => setImagem(e.target.value)}
       />
       <input
         type="number"
