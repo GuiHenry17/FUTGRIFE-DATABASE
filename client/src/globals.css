@@ -2,7 +2,7 @@
 
 
 body{
-    font-family: "Inter", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
@@ -115,18 +115,16 @@ body {
   }
   
   .delete-container button {
-    padding: 10px;
     background-color: #dc3545;
-    color: white;
+    border-radius: 1rem;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+    color: white;
+    padding: 1rem;
   }
   
   .delete-container button:hover {
     background-color: #c82333;
+    cursor: pointer;
   }
   
   @media (max-width: 600px) {
@@ -194,4 +192,82 @@ body {
 
 #imagem4{
   display: flex;
+}
+
+.bloco-principal {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.bloco-produtos {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  margin: 5vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2%;
+  margin-top: 5px;
+}
+
+.bloco-produtos div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.bloco-produtos div div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+
+}
+
+#produtoos button {
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  background-color: #dc3545;
+  padding: 1rem;
+}
+
+#produtoos button:hover {
+  cursor: pointer;
+}
+
+#headerprod {
+  background-color: white;
+}
+
+.pagename {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: underline;
+  text-decoration-color: rgb(51, 95, 36);
+}
+
+.precos {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.fotoprodutos {
+  display: flex;
+  height: 300px;
+  width: 300px;
 }

@@ -40,35 +40,24 @@ export default function ReadCamisetas() {
 
   return (
     <div>
-    <Header/>
-    <div className='container'>
-      <h2>Lista de Camisetas</h2>
-      <table  className="table-container" border="1">
-        <thead>
-          <tr>
-            <th>Código Camiseta</th>
-            <th>Nome da Camiseta</th>
-            <th>Preço</th>
-            <th>Quantidade</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Header />
+      <div className='bloco-principal'>
+        <div className="pagename">
+          <h1>Camisetas</h1>
+        </div>
+        <div className="bloco-produtos">
           {camisetas.map((camiseta) => (
-            <tr key={camiseta._id}>
-              <td>{camiseta._id}</td>
-              <td>{camiseta.nome}</td>
-              <td>{camiseta.preco}</td>
-              <td>{camiseta.quantidade}</td>
-              <td>
-                <button onClick={() => handleDelete(camiseta._id)}>Excluir</button>
-              </td>
-            </tr>
+            <div key={camiseta.id} id='produtoos'>
+              <img className='fotoprodutos' src={camiseta.imagem} alt={camiseta.nome} />
+              <p>{camiseta.nome}</p>
+              <p className='precos'>{camiseta.preco}</p>
+              <p>{camiseta.quantidade}</p>
+              <button className="delete-container" onClick={() => handleDelete(camiseta._id)}>REMOVER</button>
+            </div>
           ))}
-        </tbody>
-      </table>
-    </div>
-    <Footer/>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
