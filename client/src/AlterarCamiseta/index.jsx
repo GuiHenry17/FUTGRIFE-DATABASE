@@ -37,51 +37,51 @@ export default function UpdateCamiseta() {
 
   return (
     <div>
-      <Header/>
-    <div className='container'>
-    <form  className="form-container" onSubmit={handleSubmit}>
-      <h2>Atualizar Camiseta</h2>
-      <input
-        type="text"
-        placeholder="ID da Camiseta"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Nome da Camiseta"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-        required
-      />
-      <input
-        type="number"
-        min={0}
-        step={0.010}
-        placeholder="Preço"
-        value={preco}
-        onChange={(e) => setPreco(e.target.value)}
-        required
-      />
-      <input 
-        type='url'
-        placeholder='Link da Imagem'
-        value={imagem}
-        onChange={(e) => setImagem(e.target.value)}
-      />
-      <input
-        type="number"
-        min={0}
-        placeholder="Quantidade"
-        value={quantidade}
-        onChange={(e) => setQuantidade(e.target.value)}
-        required
-      />
-      <button type="submit">Atualizar Camiseta</button>
-    </form>
-    </div>
-    <Footer/> 
+      <Header />
+      <div className='container'>
+        <form className="form-container" onSubmit={handleSubmit}>
+          <h2>Atualizar Camiseta</h2>
+          <input
+            type="text"
+            placeholder="ID da Camiseta"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Nome da Camiseta"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />
+          <input
+            type="number"
+            min={0}
+            step={0.010}
+            placeholder="Preço"
+            value={preco}
+            onChange={(e) => setPreco(e.target.value)}
+            required
+          />
+          <input
+            type='url'
+            placeholder='Link da Imagem'
+            value={imagem}
+            onChange={(e) => setImagem(e.target.value)}
+          />
+          <input
+            type="number"
+            min={0}
+            placeholder="Quantidade"
+            value={quantidade}
+            onChange={(e) => setQuantidade(e.target.value)}
+            required
+          />
+          <button type="submit">Atualizar Camiseta</button>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 }

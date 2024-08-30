@@ -51,7 +51,7 @@ export default function ReadCamisetas() {
               <div key={camiseta.id} id='produtoos'>
                 <img className='fotoprodutos' src={camiseta.imagem} alt={camiseta.item} />
                 <p>{camiseta.nome + ` (${camiseta.quantidade})`}</p>
-                  <p>{'R$ ' + camiseta.preco.toFixed(2)}</p>
+                <p>{'R$ ' + camiseta.preco}</p>
                 <button className="botaoadd" onClick={() => handleDelete(camiseta._id)}>REMOVER</button>
               </div>
             ))}
@@ -59,6 +59,6 @@ export default function ReadCamisetas() {
         </>
       </div>
       <Footer />
-   </>
+    </>
   );
 }

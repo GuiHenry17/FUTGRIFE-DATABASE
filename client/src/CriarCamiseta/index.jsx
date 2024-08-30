@@ -41,45 +41,45 @@ export default function CreateCamiseta() {
 
   return (
     <div>
-    <Header/>
-    <div className='container'>
-    <form  className="form-container" onSubmit={handleSubmit}>
-      <h2>Criar Camiseta</h2>
-      <input
-        type="text"
-        placeholder="Nome da Camiseta"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-        required
-      />
-      <input
-        type="number"
-        placeholder="Preço"
-        min={0}
-        step={0.010}
-        value={preco}
-        onChange={(e) => setPreco(e.target.value)}
-        required
-      />
-      <input
-        type='url'
-        placeholder="Link da Imagem"
-        value={imagem}
-        onChange={(e) => setImagem(e.target.value)}
-        required
-      />
-      <input
-        type="number"
-        min={0}
-        placeholder="Quantidade"
-        value={quantidade}
-        onChange={(e) => setQuantidade(e.target.value)}
-        required
-      />
-      <button type="submit">Criar Camiseta</button>
-    </form>
-    </div>
-    <Footer/>
+      <Header />
+      <div className='container'>
+        <form className="form-container" onSubmit={handleSubmit}>
+          <h2>Criar Camiseta</h2>
+          <input
+            type="text"
+            placeholder="Nome da Camiseta"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />
+          <input
+            type="number"
+            placeholder="Preço"
+            min={0}
+            step={0.010}
+            value={preco}
+            onChange={(e) => setPreco(e.target.value)}
+            required
+          />
+          <input
+            type='url'
+            placeholder="Link da Imagem"
+            value={imagem}
+            onChange={(e) => setImagem(e.target.value)}
+            required
+          />
+          <input
+            type="number"
+            min={0}
+            placeholder="Quantidade"
+            value={quantidade}
+            onChange={(e) => setQuantidade(e.target.value)}
+            required
+          />
+          <button type="submit">Criar Camiseta</button>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 }

@@ -32,7 +32,6 @@ li:hover {
 /* Footer */
 #footer {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: rgb(26, 77, 14);
@@ -59,7 +58,7 @@ button:hover {
 }
 
 #produtoos button {
-    background-color: #d71024 ;
+    background-color: #d71024;
 }
 
 #produtoos button:hover {
@@ -122,7 +121,8 @@ button:hover {
     border-collapse: collapse;
 }
 
-.table-container th, .table-container td {
+.table-container th,
+.table-container td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
@@ -198,7 +198,10 @@ button:hover {
 }
 
 @media (max-width: 600px) {
-    .form-container, .table-container, .delete-container {
+
+    .form-container,
+    .table-container,
+    .delete-container {
         width: 90%;
         padding: 15px;
     }
@@ -255,11 +258,11 @@ button:hover {
 }
 
 #header {
-  display: flex;
-  background-color: rgb(26, 77, 14);
-  justify-content: space-around;
-  align-items: center;
-  height: 60px;
+    display: flex;
+    background-color: rgb(26, 77, 14);
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
 }
 
 .pagename {
@@ -269,4 +272,26 @@ button:hover {
     justify-content: center;
     text-decoration: underline;
     text-decoration-color: rgb(51, 95, 36);
+}
+
+.secao {
+    display: grid;
+}
+
+.secoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.copy {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.copy p {
+    margin: 0;
 }
