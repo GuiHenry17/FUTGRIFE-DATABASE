@@ -23,5 +23,6 @@
    git clone https://github.com/GuiHenry17/FUTGRIFE-DATABASE.git
    
 2. Abra localmente
-3. Inicie o servidor com npm start
-4. Inicie o cliente com npm run dev
+3. Instale as dependências do servidor e cliente com npm i
+4. Inicie o servidor com npm start
+5. Inicie o cliente com npm run dev
