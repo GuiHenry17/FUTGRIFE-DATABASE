@@ -7,7 +7,9 @@
 - JavaScript  
 - HTML  
 - CSS  
-- [outras tecnologias se houver]
+- React.js
+- Vite
+- MongoDB
 
 ## Funcionalidades
 
