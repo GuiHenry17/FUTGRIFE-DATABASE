@@ -10,6 +10,7 @@
 - React.js
 - Vite
 - MongoDB
+- Express
 
 ## Funcionalidades
 
